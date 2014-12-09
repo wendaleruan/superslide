@@ -1,0 +1,297 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>SuperSlide如何使用</title>
+		<link href="css/bootstrap.css" rel='stylesheet' type='text/css' />
+		<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+		<script src="js/jquery.min.js"></script>
+		 <!-- Custom Theme files -->
+		<link href="css/howtoUse.css" rel='stylesheet' type='text/css' />
+		<link href="css/prettify.css" type="text/css" rel="stylesheet" />
+		<script type="text/javascript" src="js/prettify.js"></script>
+   		 <!-- Custom Theme files -->
+   		 <!-- start-smoth-scrolling-->
+		<script type="text/javascript" src="js/move-top.js"></script>
+		<script type="text/javascript" src="js/easing.js"></script>
+		<script type="text/javascript">
+			jQuery(document).ready(function($) {
+				$(".scroll").click(function(event){		
+					event.preventDefault();
+					$('html,body').animate({scrollTop:$(this.hash).offset().top},1000);
+				});
+			});
+		</script>
+		 <!-- start-smoth-scrolling-->
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+		</script>
+		<!--//webfonts-->
+		<!-- start-top-nav-script-->
+		<script>
+			$(function() {
+				var pull 		= $('#pull');
+					menu 		= $('nav ul');
+					menuHeight	= menu.height();
+				$(pull).on('click', function(e) {
+					e.preventDefault();
+					menu.slideToggle();
+				});
+				$(window).resize(function(){
+	        		var w = $(window).width();
+	        		if(w > 320 && menu.is(':hidden')) {
+	        			menu.removeAttr('style');
+	        		}
+	    		});
+			});
+		</script>
+		<!--//End-top-nav-script-->
+	</head>
+	<body onload="prettyPrint()">
+		<!-- start-header-->
+			<div id="home" class="header">
+					<div class="top-header">
+						<div class="container">
+						<div class="logo">
+							<a href="#"><h2>SuperSlide使用</h2></a>
+						</div>
+						<!--start-top-nav-->
+						 <nav class="top-nav">
+							<ul class="top-nav">
+								<li><a href="index.html">首页</a><span> </span></li>
+								<li><a href="howToUse.html">如何使用</a></li>
+								<li><a href="param.html">查看参数</a></li>
+								<li><a href="demo.html">基础效果</a><span> </span></li>
+								<li><a href="certify.html">声明</a></li>
+								<div class="clearfix"> </div>
+							</ul>
+							<a href="#" id="pull"><img src="images/nav-icon2.png" title="menu" /></a>
+						</nav>
+						<div class="clearfix"> </div>
+					</div>
+				</div>
+			</div>
+			<!-- //End-header-->
+			<!--use-->
+			<div class="use">
+				<div class="container">
+					<div class="line"></div>
+					<div>
+						<dl class="useDl">
+							 <dt>
+								<h2>1、引用jQuery.js 和 jquery.SuperSlide.js</h2>
+								<p>因为SuperSlide是基于jQuery的插件，所以前提必须先引用jQuery，再引用SuperSlide</p>
+							 </dt>
+							 <dd>
+							<pre class="prettyprint linenums Lang-html">
+&lt;head&gt;
+    &lt;script type="text/javascript" src="../jquery1.42.min.js"&gt;&lt;/script&gt;
+    &lt;script type="text/javascript" src="../jquery.SuperSlide.2.1.1.js"&gt;&lt;/script&gt;
+&lt;/head&gt;</pre>
+							 </dd>
+
+							 <dt>
+								<h2>2、编写HTML</h2>
+								<p>以下是默认的HTMl结构，分别是 ".hd" 里面包含ul， ".bd" 里面包含ul</p>
+							 </dt>
+							 <dd>
+								<pre class="prettyprint linenums Lang-html">
+&lt;div class="slideTxtBox"&gt;
+    &lt;div class="hd"&gt;
+        &lt;ul&gt;&lt;li&gt;教育&lt;/li&gt;&lt;li&gt;培训&lt;/li&gt;&lt;li&gt;出国&lt;/li&gt;&lt;/ul&gt;
+    &lt;/div&gt;
+    &lt;div class="bd"&gt;
+        &lt;ul&gt;
+            &lt;li&gt;&lt;a href="http://www.SuperSlide2.com" target="_blank"&gt;SuperSlide2.0正式发布！&lt;/a&gt;&lt;/li&gt;
+            ...
+        &lt;/ul&gt;
+        &lt;ul&gt;
+            &lt;li&gt;&lt;a href="http://www.SuperSlide2.com" target="_blank"&gt;名师教作文：３妙招巧写高分&lt;/a&gt;&lt;/li&gt;
+            ...
+        &lt;/ul&gt;
+        &lt;ul&gt;
+            &lt;li&gt;&lt;a href="http://www.SuperSlide2.com" target="_blank"&gt;澳大利亚八大名校招生说明会&lt;/a&gt;&lt;/li&gt;
+            ...
+        &lt;/ul&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</pre>
+							 </dd>
+
+							 <dt>
+								<h2>3、编写CSS，为HTML赋予样色</h2>
+								<p><b>认真检查您的css，保证兼容大部分浏览器前提下再调用SuperSlide</b></p>
+							 </dt>
+							 <dd>
+							 	<pre class="prettyprint linenums Lang-html">
+.slideTxtBox{ width:450px; border:1px solid #ddd; text-align:left;  }
+.slideTxtBox .hd{ height:30px; line-height:30px; background:#f4f4f4; padding:0 20px; border-bottom:1px solid #ddd;  position:relative; }
+.slideTxtBox .hd ul{ float:left; position:absolute; left:20px; top:-1px; height:32px;   }
+.slideTxtBox .hd ul li{ float:left; padding:0 15px; cursor:pointer;  }
+.slideTxtBox .hd ul li.on{ height:30px;  background:#fff; border:1px solid #ddd; border-bottom:2px solid #fff; }
+.slideTxtBox .bd ul{ padding:15px;  zoom:1;  }
+.slideTxtBox .bd li{ height:24px; line-height:24px;   }
+.slideTxtBox .bd li .date{ float:right; color:#999;  }</pre>
+							 </dd>
+
+							 <dt>
+								<h2>4、调用SuperSlide</h2>
+								<p>
+									<b>在本例中，请在 “.slideTxtBox” div结束后立刻调用 SuperSlide，这样会得到最好的效果，避免整个页面加载后再调用 SuperSlide；</b><br>
+									因为是默认HTML结构，所以参数都为默认值，不用填写titCell、mainCell等。
+								</p>
+							 </dt>
+							 <dd>
+								<pre class="prettyprint linenums Lang-html">
+&lt;script type="text/javascript"&gt;jQuery(".slideTxtBox").slide(); &lt;/script&gt;</pre>
+							 </dd>
+
+							 <dt>
+								<h2>5、效果如下：</h2>
+							 </dt>
+
+							<dd>
+								<div id="switchTab" class="demoBox demoBoxEven">
+									<div class="bd">
+										<div class="iframeWrap">
+											<iframe src="demo/iframe/1.0-switchTab-iframe.html?" allowtransparency="true" scrolling="no" frameborder="0"></iframe>
+										</div>
+
+										<div class="params">
+											<table border="0" cellpadding="0" cellspacing="0" width="100%">
+												<tbody>
+													<tr class="tit"><td colspan="4">常用参数(切换看看)</td> </tr>
+													<tr>
+														<td class="n">效果<i>[effect]</i>:</td>
+														<td>
+															<select rel="string" name="effect">
+																<option value="fade">fade</option>
+																<option value="fold">fold</option>
+																<option value="left">left</option>
+																<option value="top">top</option>
+																<option value="leftLoop">leftLoop</option>
+																<option value="topLoop">topLoop</option>
+															</select>
+														</td>
+														<td class="n">自动运行<i>[autoPlay]</i>:</td>
+														<td>
+															<select name="autoPlay">
+																<option value="false">false</option>
+																<option value="true">true</option>
+															</select>
+														</td>
+													</tr>
+													<tr>
+														<td class="n">触发方式<i>[trigger]</i>:</td>
+														<td>
+															<select rel="string" name="trigger">
+																<option value="mouseover">mouseover</option>
+																<option value="click">click</option>
+															</select>
+														</td>
+														<td class="n">缓动效果<i>[easing]</i>:</td>
+														<td>
+															<select rel="string" name="easing">
+																
+																<option value="swing">swing</option>
+																<option value="easeOutCirc">easeOutCirc</option>
+																<option value="easeInQuint">easeInQuint</option>
+																<option value="easeInBack">easeInBack</option>
+																<option value="easeOutBounce">easeOutBounce</option>
+																<option value="easeOutElastic">easeOutElastic</option>
+																<option value="easing-more">更多</option>
+															</select>
+														</td>
+													</tr>
+													<tr>
+														<td class="n">效果速度<i>[delayTime]</i>:</td>
+														<td>
+															<select name="delayTime">
+																<option value="500">500</option>
+																<option value="700">700</option>
+																<option value="1000">1000</option>
+																<option value="0">0</option>
+															</select>
+														</td>
+														<td class="n" title="前/后按钮是否继续循环，若为false则当翻动到最前/后页时，前/后按钮点击无效">前后按钮循环<i>[pnLoop]</i>:</td>
+														<td>
+															<select name="pnLoop">
+																<option value="true">true</option>
+																<option value="false">false</option>
+															</select>
+														</td>
+													</tr>
+												</tbody>
+											</table>
+											<p class="jsCode">当前调用代码：<span class="curJsCode">jQuery(".slideTxtBox").slide({<i></i>});</span></p>
+											<p class="notice">注意：缓动效果对于fade影响不大;不同缓动效果设置适当“效果速度”，会有最佳效果。<br></p>
+										</div><!--param-->
+										<script type="text/javascript">
+											//当前调用代码初始化
+											$(".params").each(function(ind){
+												$(this).find(".curJsCode").eq(ind).html(getJsCode(ind));
+											});
+
+											//切换参数调用切换不同效果
+											$(".params select").change(function(){
+
+												 if($(this).val()=="easing-more"){ window.open("otherDemo/5.1/easing.html"); return; }
+
+												 var srcStr="";
+												 var ind=$(".demoBox").index( $(this).closest(".demoBox") );
+
+												 var iframe = $(this).closest(".demoBox").find("iframe");
+												 var selects = $(this).closest(".params").find("select");
+
+												 selects.each(function(){
+													srcStr += "&"+$(this).val();
+												 });
+												 iframe.attr("src",iframe.attr("src").split('&')[0]+srcStr);
+
+												$(".curJsCode").eq(ind).html(getJsCode(ind));
+												});
+
+												//当前调用代码
+												function getJsCode( ind ){
+													var curJsCode="";
+													var $cur = $(".curJsCode").eq(ind);
+
+													$(".params").eq(ind).find("select").each(function(){
+														if( $("option",this).index( $("option:selected",this) ) !=0 || $("option",this).attr("class")=="show")
+														{
+															var tempVal = $(this).attr("rel")=="string"?('"'+$(this).val()+'"'):$(this).val();
+															curJsCode+= "," + $(this).attr("name")+":"+tempVal;
+														}
+													});
+													if(ind==0) curJsCode = curJsCode.substring(1);
+													$cur.find("i").html(curJsCode);
+													curJsCode = $cur.html();
+
+													return curJsCode;
+												}
+
+										</script>
+									</div><!-- bd E -->
+								</div><!--switchtab-->
+							</dd>
+
+							<dt>
+								<h2>
+								6、如果您想了解更多，可以查看“<a target="_blank" href="demo.html">基础效果</a>”
+								</h2>
+							</dt>
+						</dl>
+					</div>
+				</div><!--contaniner-->
+			</div>
+			<!--//use-->
+			<!--copy-right-->
+			<div class="copy-right text-center">
+				<div class="container">
+					<div class="copyt">
+						Copyright &copy; 2014 SuperSlide. Web Design By Wendale.All rights reserved. 
+					</div>
+				</div>
+			</div>
+			<!--//copy-right-->
+</body>
+</html>

@@ -1,0 +1,96 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>声明</title>
+		<link href="css/bootstrap.css" rel='stylesheet' type='text/css' />
+		<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+		<script src="js/jquery.min.js"></script>
+		 <!-- Custom Theme files -->
+		<link href="css/certify.css" rel='stylesheet' type='text/css' />
+   		 <!-- Custom Theme files -->
+   		 <!-- start-smoth-scrolling-->
+		<script type="text/javascript" src="js/move-top.js"></script>
+		<script type="text/javascript" src="js/easing.js"></script>
+		<script type="text/javascript">
+			jQuery(document).ready(function($) {
+				$(".scroll").click(function(event){		
+					event.preventDefault();
+					$('html,body').animate({scrollTop:$(this.hash).offset().top},1000);
+				});
+			});
+		</script>
+		 <!-- start-smoth-scrolling-->
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+		</script>
+		<!--//webfonts-->
+		<!-- start-top-nav-script-->
+		<script>
+			$(function() {
+				var pull 		= $('#pull');
+					menu 		= $('nav ul');
+					menuHeight	= menu.height();
+				$(pull).on('click', function(e) {
+					e.preventDefault();
+					menu.slideToggle();
+				});
+				$(window).resize(function(){
+	        		var w = $(window).width();
+	        		if(w > 320 && menu.is(':hidden')) {
+	        			menu.removeAttr('style');
+	        		}
+	    		});
+			});
+		</script>
+		<!--//End-top-nav-script-->
+	</head>
+	<body>
+		<!-- start-header-->
+			<div id="home" class="header">
+					<div class="top-header">
+						<div class="container">
+						<div class="logo">
+							<a href="#"><h2>SuperSlide</h2></a>
+						</div>
+						<!--start-top-nav-->
+						 <nav class="top-nav">
+							<ul class="top-nav">
+								<li><a href="index.html">首页</a><span> </span></li>
+								<li><a href="howToUse.html">如何使用</a></li>
+								<li><a href="param.html">查看参数</a></li>
+								<li><a href="demo.html">基础效果</a><span> </span></li>
+								<li><a href="certify.html">声明</a></li>
+								<div class="clearfix"> </div>
+							</ul>
+							<a href="#" id="pull"><img src="images/nav-icon2.png" title="menu" /></a>
+						</nav>
+						<div class="clearfix"> </div>
+					</div>
+				</div>
+			</div>
+			<!-- //End-header-->
+			
+			<!-- about -->
+			<div id="about" class="about">
+				<div class="about-head text-center">
+					<div class="container text-center">
+						<h2>声明</h2>
+						<p id="aboutm">本网站只作练习学习使用，网页内容均来自SuperSlide 官网，大话主席大神做的这个插件的确方便了很多新手，包括我这种小白。几天前刚刚看到的时候就有一种改版这个网页的欲望，几天后出炉了。再次声明，此网站只是自己以及好友之间学习分享知识使用，不作为任何商业用途，关于这个插件的任何版权都属于原作者所有。分享是一种美德，搬运的同时小小的包装一下，愉快的学习！<label><a target="_blank" href="http://www.superslide2.com/index.html">[查看原作者官网]</a></label></p>
+					</div>
+				</div>
+				
+			</div>
+			<!--//about -->
+			
+			<!--copy-right-->
+			<div class="copy-right text-center">
+				<div class="container">
+					<div class="copyt">
+						Copyright &copy; 2014 SuperSlide. Web Design By Wendale.All rights reserved. 
+					</div>
+				</div>
+			</div>
+			<!--//copy-right-->
+</body>
+</html>
